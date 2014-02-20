@@ -23,4 +23,6 @@ $('#pink').click(function() {
 
 
 // Problem 4 (Greet Me) -----------------------------------------------------
-// WRITE CODE HERE
+$('#greet_me').click(function() {
+  alert('Hello!');
+});
