@@ -8,16 +8,18 @@ $('#say_hello').click(function() {
 
 // Problem 2 (Houdini) ------------------------------------------------------
 $('#disappear').click(function() {
-  //WRITE CODE HERE
+  $('#houdini_text').hide();
 });
 
 $('#reappear').click(function() {
-  //WRITE CODE HERE
+  $('#houdini_text').show();
 });
 
 
 // Problem 3 (Tickle Me Pink) -----------------------------------------------
-// WRITE CODE HERE
+$('#pink').click(function() {
+  $('#tickled_text').css('color', 'pink');
+});
 
 
 // Problem 4 (Greet Me) -----------------------------------------------------
