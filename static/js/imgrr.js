@@ -25,3 +25,5 @@ $('.clickable').click(function() {
 $('.click').click(function() {
   $('#main_img2').attr('src', $(this).attr('src'));
 });
+
+
