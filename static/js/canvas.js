@@ -19,23 +19,23 @@ $(document).ready(function() {
 
 $('#p3').click(function() {
 	context.beginPath();
-  	context.arc(100, 100, Math.PI, Math.PI);
-  	contextclosePath();
+  	context.arc(100, 100, 50, 0, Math.PI);
+  	context.closePath();
   	context.stroke();
 });
 
 $('#p4').click(function() {
 	context.beginPath();
-  	context.arc(200, 200, 10, 0, 2*Math.PI);
-  	contextclosePath();
+  	context.arc(200, 200, 50, 0, 2*Math.PI);
+  	context.closePath();
   	context.stroke();
 });
 
 $('#p5').click(function() {
-	contextbeginPath();
+	context.beginPath();
   	context.moveTo(10, 10);
   	context.lineTo(1000, 1000);
-  	contextclosePath();
+  	context.closePath();
   	context.stroke();
 });
 
@@ -46,28 +46,35 @@ $('#p6').click(function() {
 
 $('#p7').click(function() {
 	context.fillStyle = 'red';
-  	context.fillarc(300, 300, Math.PI, Math.PI);
+	context.beginPath();
+  	context.arc(300, 300, 50, 0, 2*Math.PI);
+  	context.closePath();
+  	context.fill();
 });
 
 $('#p8').click(function() {
 	context.fillStyle = 'yellow';
 	context.strokeStyle = 'blue';
-  	context.fillRect(300, 300, Math.PI, Math.PI);
-  	context.stroke();
+  	context.fillRect(250, 250, 80, 50);
+  	context.strokeRect(250, 250, 80, 50);
 });
 
 $('#p9').click(function() {
-	var rectangle = function(x,y,w,h,){
-		context.beginPath();
-	for (var row = function(num) {
-        for (var i = 0; i < num; i++) {
-        	rectangle(i * 5, 0, 5);
-        }
+	var row = function(num) {
+		for (var i = 0; i < num; i++) {
+			context.strokeRect(i * 50, 0, 50, 50);
+		}
+	}
+	row(5);
 });
 
 $('#p10').click(function() {
-	for (var row = function(num) {
-        for (var i = 0; i < num; i++) {
-        	square(i * 100, 100, 100);
-        }
+	var row = function(num) {
+		for (var i = 0; i < num; i++) {
+			context.strokeRect(i * 50, 0, 5, 5);
+		}
+	}
+	row(100);
+});
+
 });
