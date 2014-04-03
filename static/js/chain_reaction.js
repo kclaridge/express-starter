@@ -12,34 +12,20 @@ var drawCircle = function(x, y, radius, color) {
     context.closePath();
     context.fill();
 };
+
+
 var balls = [];
-  var b0 = {
-    x: 100,
-    y: 100,
-    vx: .04,
-    vy: .04,
+var numBalls = 5;
+  for (var i = 0; i < numBalls; i++) {
+    var b = {
+    x: canvas.width * Math.random(),
+    y: canvas.height * Math.random(0, canvas.height),
+    vx: 5 * Math.random(),
+    vy: 5 * Math.random(),
     radius: 10
-  };
-
-    var b1 = {
-    x: 300,
-    y: 100,
-    vx: .04,
-    vy: .04,
-    radius: 20
-  };
-
-    var b2 = {
-    x: 500,
-    y: 300,
-    vx: .04,
-    vy: .04,
-    radius: 30
-  };
-
-  balls.push(b0);
-  balls.push(b1);
-  balls.push(b2);
+  }
+    balls.push(b);
+}
 
   // Run an interation of the game
   var updateGame = function() {
@@ -56,8 +42,8 @@ var balls = [];
     context.clearRect(0,0, canvas.width, canvas.height);
     for (var i = 0; i < balls.length; i++) {
         drawCircle(balls[i].x,balls[i].y,balls[i].radius, 'purple');
-        setTimeout(updateGame, 10);
-};
+}
+    requestAnimationFrame(updateGame);
 };
 
   // Handle a canvas click event
@@ -65,7 +51,16 @@ var balls = [];
     // Find the mouse x and y relative to the top-left corner of the canvas
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
-    // PUT STUFF HERE
+      for (var i = 0; i < numBalls; i++) {
+    var B = {
+    x: x,
+    y: y,
+    vx: 5 * Math.random(),
+    vy: 5 * Math.random(),
+    radius: 10
+  }
+    balls.push(B);
+}
   });
 
   updateGame();
